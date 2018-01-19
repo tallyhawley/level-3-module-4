@@ -42,9 +42,57 @@ public class OlympicRings_Threaded {
 			}
 		});
 		
+		static Thread redT = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				red.moveTo(900, 400);
+				red.setPenWidth(5);
+				red.penDown();
+				red.setSpeed(100);
+				red.setPenColor(Color.red);
+				for(int i =0;i<360;i++) {
+					red.move(3);
+					red.turn(1);
+				}
+			}
+		});
+		
+		static Thread yellowT = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				yellow.moveTo(450, 650);
+				yellow.setPenWidth(5);
+				yellow.penDown();
+				yellow.setSpeed(100);
+				yellow.setPenColor(Color.yellow);
+				for(int i =0;i<360;i++) {
+					yellow.move(3);
+					yellow.turn(1);
+				}
+			}
+		});
+		
+		static Thread greenT = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				green.moveTo(750, 650);
+				green.setPenWidth(5);
+				green.penDown();
+				green.setSpeed(100);
+				green.setPenColor(Color.green);
+				for(int i =0;i<360;i++) {
+					green.move(3);
+					green.turn(1);
+				}
+			}
+		});
+		
 		public static void main(String[] args) {
 			blueT.start();
 			blackT.start();
+			redT.start();
+			yellowT.start();
+			greenT.start();
 		}
 }
 
